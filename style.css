@@ -1,0 +1,104 @@
+/* ===== Lecture 03 – CSS Basics ===== */
+
+/* Step 1 + Step 3: Typography (element selector) */
+body.dark {
+  background: #111;
+  color: #f2f2f2;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Optional: make skip link visible and usable */
+a[href="#main"] {
+  display: inline-block;
+  padding: 8px 12px;
+}
+
+/* Step 5: Header & Footer styling (group selector) */
+header,
+footer {
+  background-color: #f2f2f2;
+  padding: 16px;
+}
+
+/* Step 3: Heading sizes (element selectors) */
+h1 {
+  font-size: 2rem;
+  margin: 0 0 8px 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 0 0 8px 0;
+}
+
+/* Step 4 + Step 8: spacing + layout constraint */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Step 4: Spacing between blocks (element selector) */
+section {
+  margin: 24px 0;
+  padding: 8px 0;
+}
+
+/* Step 2: ID selector */
+#works {
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+}
+
+/* Step 2: Class selector */
+.media {
+  margin: 16px 0;
+}
+
+/* Step 6: Navigation styling (list → navigation) */
+nav {
+  padding: 10px 16px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 12px;
+}
+
+/* Step 2: Descendant selector */
+nav a {
+  text-decoration: none;
+  padding: 8px 10px;
+  display: inline-block;
+}
+
+/* Step 2: Pseudo-class */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Step 7: Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Step 7: Responsive iframes */
+iframe {
+  max-width: 100%;
+  width: 100%;
+  height: 315px;
+  border: 0;
+}

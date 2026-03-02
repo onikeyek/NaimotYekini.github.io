@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Naimot Yekini – Portfolio</title>
+
+  <!-- External CSS link (MANDATORY) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Skip link (accessibility) -->
+  <a href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header>
+    <h1>Naimot Yekini</h1>
+    <p>Information Technology Student (IoT)</p>
+    <p>Savonia University of Applied Sciences, Kuopio, Finland</p>
+    <p>
+      I am an aspiring cloud and IoT engineer with an interest in technology,
+      innovation, and creative problem-solving.
+    </p>
+
+    <!-- JavaScript interaction buttons -->
+    <button id="themeBtn" type="button">Toggle theme</button>
+    <button id="countBtn" type="button">Click me</button>
+    <span id="countLabel">0</span>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#works">Portfolio</a></li>
+      <li><a href="#interests">Areas of Interest</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main">
+
+    <!-- Portfolio Section -->
+    <section id="works">
+      <h2>Portfolio</h2>
+
+      <figure class="media">
+        <img src="profile.jpg" alt="Portrait of Naimot Yekini">
+        <figcaption>Profile photo</figcaption>
+      </figure>
+
+      <figure class="media">
+        <img src="project.jpg" alt="Screenshot of an IoT project">
+        <figcaption>
+          IoT Project –
+          <a href="https://github.com/onikeyek">View on GitHub</a>
+        </figcaption>
+      </figure>
+
+      <figure class="media">
+        <iframe
+          src="https://www.youtube.com/embed/abc123xyz"
+          title="Project demonstration video"
+          allowfullscreen>
+        </iframe>
+        <figcaption>Project demonstration video</figcaption>
+      </figure>
+    </section>
+
+    <!-- Areas of Interest -->
+    <section id="interests">
+      <h2>Areas of Interest</h2>
+      <ul>
+        <li>Cloud Engineering and IoT</li>
+        <li>Health Technology</li>
+        <li>Design and Creative Writing</li>
+        <li>Learning Finnish Language</li>
+        <li>Watching football and movies</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <h2>Contact & Social Links</h2>
+    <ul>
+      <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+      <li><a href="https://github.com/onikeyek">GitHub</a></li>
+    </ul>
+    <p>© 2026 Naimot Yekini</p>
+  </footer>
+
+  <!-- External JavaScript (MANDATORY, end of body) -->
+  <script src="script.js"></script>
+</body>
+</html>
