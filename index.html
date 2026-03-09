@@ -3,36 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Naimot Yekini – Portfolio</title>
-
-  <!-- External CSS link (MANDATORY) -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Skip link (accessibility) -->
-  <a href="#main">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header>
-    <h1>Naimot Yekini</h1>
-    <p>Information Technology Student (IoT)</p>
-    <p>Savonia University of Applied Sciences, Kuopio, Finland</p>
-    <p>
-      I am an aspiring cloud and IoT engineer with an interest in technology,
-      innovation, and creative problem-solving.
-    </p>
-
-    <!-- JavaScript interaction buttons -->
-    <button id="themeBtn" type="button">Toggle theme</button>
-    <button id="countBtn" type="button">Click me</button>
-    <span id="countLabel">0</span>
+    <div class="header-inner">
+      <div class="header-text">
+        <h1>Naimot Yekini</h1>
+        <p class="subtitle">Information Technology Student (IoT)</p>
+        <p class="location">Savonia University of Applied Sciences, Kuopio, Finland</p>
+        <p class="bio">
+          I am an aspiring cloud and IoT engineer with an interest in technology,
+          innovation, and creative problem-solving.
+        </p>
+      </div>
+      <div class="header-controls">
+        <button id="themeBtn" type="button">🌙 Toggle Theme</button>
+        <button id="countBtn" type="button">👋 Say Hi <span id="countLabel">0</span></button>
+      </div>
+    </div>
   </header>
 
   <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="#works">Portfolio</a></li>
-      <li><a href="#interests">Areas of Interest</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#interests">Interests</a></li>
       <li><a href="#footer">Contact</a></li>
     </ul>
   </nav>
@@ -67,6 +70,80 @@
       </figure>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-icon">🌐</span>
+          <span class="skill-name">HTML</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🎨</span>
+          <span class="skill-name">CSS</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">⚡</span>
+          <span class="skill-name">JavaScript</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🐍</span>
+          <span class="skill-name">Python</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">📡</span>
+          <span class="skill-name">IoT Systems</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🔬</span>
+          <span class="skill-name">LTspice</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">☁️</span>
+          <span class="skill-name">Cloud Basics</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🐙</span>
+          <span class="skill-name">Git & GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-list">
+
+        <article class="project-card">
+          <h3>Smart Environment Monitor</h3>
+          <p>
+            An IoT project that reads temperature and humidity data from sensors
+            and sends it to a cloud dashboard in real time using MQTT protocol.
+          </p>
+          <a href="https://github.com/onikeyek" class="project-link">View on GitHub →</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            A responsive portfolio site built with HTML, CSS, and vanilla JavaScript,
+            featuring dark mode, localStorage persistence, and accessible navigation.
+          </p>
+          <a href="https://github.com/onikeyek" class="project-link">View on GitHub →</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Health Data Logger</h3>
+          <p>
+            A Python script that collects and visualises health-related sensor data,
+            exploring the intersection of IoT and health technology.
+          </p>
+          <a href="https://github.com/onikeyek" class="project-link">View on GitHub →</a>
+        </article>
+
+      </div>
+    </section>
+
     <!-- Areas of Interest -->
     <section id="interests">
       <h2>Areas of Interest</h2>
@@ -89,9 +166,9 @@
       <li><a href="https://github.com/onikeyek">GitHub</a></li>
     </ul>
     <p>© 2026 Naimot Yekini</p>
+    <p id="lastUpdated"></p>
   </footer>
 
-  <!-- External JavaScript (MANDATORY, end of body) -->
   <script src="script.js"></script>
 </body>
 </html>
