@@ -1,104 +1,412 @@
-/* ===== Lecture 03 – CSS Basics ===== */
+/* ===== Portfolio – style.css ===== */
 
-/* Step 1 + Step 3: Typography (element selector) */
+/* ── CSS Variables ── */
+:root {
+  --bg:        #ffffff;
+  --bg-soft:   #f5f5f5;
+  --text:      #1a1a1a;
+  --text-muted:#555555;
+  --accent:    #2563eb;
+  --accent-hover: #1d4ed8;
+  --border:    #e0e0e0;
+  --card-bg:   #ffffff;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --header-bg: #f0f4ff;
+}
+
 body.dark {
-  background: #111;
-  color: #f2f2f2;
+  --bg:        #111827;
+  --bg-soft:   #1f2937;
+  --text:      #f9fafb;
+  --text-muted:#9ca3af;
+  --accent:    #60a5fa;
+  --accent-hover: #93c5fd;
+  --border:    #374151;
+  --card-bg:   #1f2937;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  --header-bg: #1e3a5f;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  font-family: Georgia, 'Times New Roman', serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
   margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Optional: make skip link visible and usable */
-a[href="#main"] {
+/* ── Skip link ── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  position: static;
   display: inline-block;
   padding: 8px 12px;
 }
 
-/* Step 5: Header & Footer styling (group selector) */
-header,
-footer {
-  background-color: #f2f2f2;
-  padding: 16px;
+/* ── Header ── */
+header {
+  background-color: var(--header-bg);
+  padding: 32px 24px;
+  border-bottom: 2px solid var(--accent);
+  transition: background-color 0.3s ease;
 }
 
-/* Step 3: Heading sizes (element selectors) */
-h1 {
-  font-size: 2rem;
-  margin: 0 0 8px 0;
-}
-
-h2 {
-  font-size: 1.4rem;
-  margin: 0 0 8px 0;
-}
-
-/* Step 4 + Step 8: spacing + layout constraint */
-main {
+.header-inner {
   max-width: 900px;
   margin: 0 auto;
-  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* Step 4: Spacing between blocks (element selector) */
-section {
-  margin: 24px 0;
-  padding: 8px 0;
+.header-text {
+  flex: 1;
+  min-width: 260px;
 }
 
-/* Step 2: ID selector */
-#works {
-  border-top: 1px solid #ddd;
-  padding-top: 16px;
+h1 {
+  font-size: 2.4rem;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.5px;
+  color: var(--text);
 }
 
-/* Step 2: Class selector */
-.media {
-  margin: 16px 0;
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin: 0 0 4px 0;
+  font-style: italic;
 }
 
-/* Step 6: Navigation styling (list → navigation) */
+.location {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 10px 0;
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 520px;
+}
+
+/* ── Header Controls ── */
+.header-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+button {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#countLabel {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 0 7px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+/* ── Navigation ── */
 nav {
-  padding: 10px 16px;
+  background-color: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 nav li {
-  display: inline;
-  margin-right: 12px;
+  margin: 0;
 }
 
-/* Step 2: Descendant selector */
 nav a {
   text-decoration: none;
-  padding: 8px 10px;
+  padding: 14px 14px;
   display: inline-block;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
-/* Step 2: Pseudo-class */
 nav a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Main ── */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+section {
+  margin: 40px 0;
+  padding: 8px 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+/* ── Portfolio media ── */
+#works {
+  padding-top: 8px;
+}
+
+.media {
+  margin: 20px 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.media img,
+.media iframe {
+  display: block;
+  width: 100%;
+}
+
+.media figcaption {
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+}
+
+.media figcaption a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.media figcaption a:hover {
   text-decoration: underline;
 }
 
-/* Step 7: Responsive images */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Step 7: Responsive iframes */
 iframe {
   max-width: 100%;
   width: 100%;
   height: 315px;
   border: 0;
+}
+
+/* ── Skills Section ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.skill-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-color: var(--accent);
+}
+
+.skill-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.skill-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: var(--text);
+  text-align: center;
+}
+
+/* ── Projects Section ── */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px 22px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.project-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.project-card p {
+  margin: 0 0 12px 0;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
+.project-link {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.88rem;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ── Interests ── */
+#interests ul {
+  padding-left: 22px;
+  color: var(--text-muted);
+}
+
+#interests li {
+  margin-bottom: 6px;
+}
+
+/* ── Footer ── */
+footer {
+  background-color: var(--bg-soft);
+  border-top: 2px solid var(--border);
+  padding: 28px 24px;
+  transition: background-color 0.3s ease;
+}
+
+footer h2 {
+  font-size: 1.1rem;
+  max-width: 900px;
+  margin: 0 auto 12px auto;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 12px auto;
+  max-width: 900px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  max-width: 900px;
+  margin: 6px auto;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+#lastUpdated {
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+  .header-inner { flex-direction: column; }
+  .header-controls { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+  nav a { padding: 12px 10px; font-size: 0.82rem; }
 }
