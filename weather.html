@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App – Naimot Yekini</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Weather App</h1>
+    <p>Current weather data from Open-Meteo API</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">← Back to Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section id="weather">
+      <h2>Check the Weather</h2>
+      <p>Select a city to fetch live weather data.</p>
+
+      <div id="cityButtons">
+        <button class="city-btn" type="button" id="btnKuopio">Kuopio</button>
+        <button class="city-btn" type="button" id="btnHelsinki">Helsinki</button>
+        <button class="city-btn" type="button" id="btnLagos">Lagos</button>
+      </div>
+
+      <div id="weatherBox" class="data-card">
+        <p><span class="label">City:</span> <span id="city">-</span></p>
+        <p><span class="label">Temperature:</span> <span id="temperature">-</span></p>
+        <p><span class="label">Wind Speed:</span> <span id="wind">-</span></p>
+      </div>
+
+      <pre id="output"></pre>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <p>© 2026 Naimot Yekini</p>
+  </footer>
+
+  <script src="weather.js"></script>
+</body>
+</html>
