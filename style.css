@@ -189,3 +189,45 @@ iframe {
   font-weight: bold;
   margin-right: 6px;
 }
+
+/* ===== Weather App ===== */
+
+#cityButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.city-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.city-btn:hover {
+  background-color: #005fa3;
+}
+
+#weatherBox {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+#output {
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-height: 40px;
+  white-space: pre-wrap;
+}
+
+body.dark #output {
+  background: #1e1e1e;
+  color: #f2f2f2;
+}
