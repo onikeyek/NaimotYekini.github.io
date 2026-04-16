@@ -1,0 +1,553 @@
+/* ===== Weather App ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0a0f1a;
+  color: #b0c4d8;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 200px;
+  background: #0d1520;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  gap: 8px;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  border-right: 1px solid #1a3040;
+  overflow-y: auto;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e8f4f8;
+  margin-bottom: 8px;
+}
+.sidebar-brand i { color: #2dd4bf; }
+
+.sidebar-station {
+  margin-bottom: 24px;
+  padding-left: 4px;
+}
+.station-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #2dd4bf;
+  text-transform: uppercase;
+}
+.station-name {
+  font-size: 0.82rem;
+  color: #e8f4f8;
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.snav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #5a8a9f;
+  text-decoration: none;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s, color 0.2s;
+}
+.snav-item:hover, .snav-item.active {
+  background: #2dd4bf18;
+  color: #2dd4bf;
+}
+
+.sidebar-promo {
+  background: #111e2e;
+  border: 1px solid #1a3040;
+  border-radius: 10px;
+  padding: 14px;
+  margin: 16px 0;
+}
+.promo-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #2dd4bf;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.promo-text {
+  font-size: 0.78rem;
+  color: #7a9ab0;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.btn-upgrade {
+  width: 100%;
+  background: #2dd4bf;
+  color: #0a0f1a;
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-upgrade:hover { background: #22b8a4; }
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+/* ── Main ── */
+.weather-main {
+  margin-left: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 28px 28px;
+  min-height: 100vh;
+}
+
+/* ── Topbar ── */
+.weather-topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid #1a3040;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.topbar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e8f4f8;
+  white-space: nowrap;
+}
+
+.city-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.city-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #111e2e;
+  border: 1px solid #1a3040;
+  border-radius: 8px;
+  color: #b0c4d8;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.city-btn:hover, .city-btn.active {
+  background: #2dd4bf;
+  border-color: #2dd4bf;
+  color: #0a0f1a;
+}
+
+.topbar-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 1.1rem;
+  color: #5a8a9f;
+}
+
+/* ── Content grid ── */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+  flex: 1;
+}
+
+/* ── Hero card ── */
+.hero-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d2a3a 0%, #0a1628 100%);
+  border: 1px solid #1a3040;
+  position: relative;
+  min-height: 220px;
+  margin-bottom: 16px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+}
+
+.hero-body {
+  position: relative;
+  padding: 32px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 220px;
+}
+
+.hero-city {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #e8f4f8;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.hero-condition {
+  font-size: 1rem;
+  color: #2dd4bf;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-temp {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #2dd4bf;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #5a8a9f;
+  text-transform: uppercase;
+}
+
+.meta-val {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e8f4f8;
+}
+
+/* ── Stat cards ── */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: #111e2e;
+  border: 1px solid #1a3040;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #5a8a9f;
+  font-size: 0.85rem;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a8a9f;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e8f4f8;
+}
+
+.stat-unit {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #5a8a9f;
+}
+
+/* ── Hourly ── */
+.hourly-section {
+  background: #111e2e;
+  border: 1px solid #1a3040;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.hourly-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.hourly-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e8f4f8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hourly-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #2dd4bf;
+  text-transform: uppercase;
+}
+
+.hourly-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.hourly-card {
+  background: #0d1520;
+  border: 1px solid #1a3040;
+  border-radius: 10px;
+  padding: 12px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+
+.hourly-card:hover { border-color: #2dd4bf44; }
+.hourly-card.now { border-color: #2dd4bf; background: #2dd4bf12; }
+
+.hourly-time { font-size: 0.7rem; color: #5a8a9f; }
+.hourly-icon { font-size: 1.3rem; }
+.hourly-temp { font-size: 1rem; font-weight: 700; color: #e8f4f8; }
+
+.hourly-placeholder {
+  grid-column: span 6;
+  text-align: center;
+  color: #5a8a9f;
+  padding: 24px;
+  font-size: 0.85rem;
+}
+
+/* ── Right column ── */
+.col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 7-day forecast */
+.forecast-card {
+  background: #111e2e;
+  border: 1px solid #1a3040;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.forecast-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #e8f4f8;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.forecast-header i { color: #2dd4bf; }
+
+.daily-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.daily-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.daily-day { color: #b0c4d8; width: 36px; }
+.daily-icon { font-size: 1rem; }
+.daily-bar-wrap {
+  flex: 1;
+  margin: 0 10px;
+  height: 4px;
+  background: #1a3040;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.daily-bar { height: 100%; background: #2dd4bf; border-radius: 2px; }
+.daily-temps { color: #e8f4f8; font-weight: 600; white-space: nowrap; font-size: 0.8rem; }
+.daily-temps span { color: #5a8a9f; margin-left: 4px; }
+
+.daily-placeholder {
+  text-align: center;
+  color: #5a8a9f;
+  font-size: 0.82rem;
+  padding: 12px 0;
+}
+
+.btn-14day {
+  width: 100%;
+  background: #1a3040;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  color: #b0c4d8;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-14day:hover { background: #2dd4bf18; color: #2dd4bf; }
+
+/* Side cards */
+.side-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.side-card {
+  background: #111e2e;
+  border: 1px solid #1a3040;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.side-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a8a9f;
+  margin-bottom: 6px;
+}
+
+.side-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e8f4f8;
+}
+
+.side-sub {
+  font-size: 0.75rem;
+  color: #2dd4bf;
+  margin-bottom: 8px;
+}
+
+.uv-bar, .aqi-bar {
+  height: 4px;
+  background: #1a3040;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.uv-fill { height: 100%; background: linear-gradient(to right, #2dd4bf, #f59e0b, #ef4444); border-radius: 2px; }
+.aqi-fill { height: 100%; background: #2dd4bf; border-radius: 2px; }
+
+/* Sun card */
+.sun-card {
+  background: #111e2e;
+  border: 1px solid #1a3040;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sun-divider {
+  width: 1px;
+  height: 40px;
+  background: #1a3040;
+}
+
+.sun-time {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e8f4f8;
+  margin-top: 4px;
+}
+
+/* ── Footer ── */
+.weather-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #1a3040;
+  padding-top: 20px;
+  margin-top: 24px;
+  font-size: 0.78rem;
+  color: #5a8a9f;
+}
+
+.weather-footer strong { color: #e8f4f8; }
+.weather-footer a { color: #2dd4bf; text-decoration: none; }
+.weather-footer a:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .sidebar { display: none; }
+  .weather-main { margin-left: 0; padding: 0 16px 24px; }
+  .content-grid { grid-template-columns: 1fr; }
+  .stat-cards { grid-template-columns: repeat(2, 1fr); }
+  .hourly-grid { grid-template-columns: repeat(4, 1fr); }
+  .hourly-placeholder { grid-column: span 4; }
+}
+
+.hourly-card.skeleton {
+  opacity: 0.4;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.2; }
+}

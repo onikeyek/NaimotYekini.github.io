@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naimot Yekini – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <span class="nav-name">Naimot Yekini</span>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#tech-stack">Tech Stack</a></li>
+    </ul>
+    <ul class="nav-icons">
+      <li><a href="mailto:naimotyekini95@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+      <li><a href="https://github.com/onikeyek" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://medium.com/@naimotyekini95" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a></li>
+      <li><a href="https://linkedin.com/in/naimot-yekini-46216397" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li><button id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button></li>
+    </ul>
+  </nav>
+
+  <!-- Home / Hero Section -->
+  <section id="home">
+    <div class="hero-image">
+      <img src="images/naimotA.png" alt="Naimot Yekini" id="profile-img">
+    </div>
+    <div class="hero-text">
+      <h1>Hi, I'm <span class="highlight">Naimot</span><span class="cursor">|</span></h1>
+      <p class="hero-bio">
+        A data engineer and web builder based in Kuopio, Finland.
+        I build AI-powered tools, data pipelines, and web interfaces:
+        things that work, things that last, things worth making.
+        With intention, curiosity, and a playlist in the background.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View my work</a>
+        <a href="mailto:naimotyekini95@gmail.com" class="btn-say-hi">
+          <i class="fas fa-envelope"></i> Say hi!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="about-heading"><span class="about-brace">{</span> about me <span class="about-brace">}</span></h2>
+
+      <div class="about-grid">
+        <!-- Left: bio + skills -->
+        <div class="about-text">
+          <p class="about-tagline">Builder. Learner.<span class="teal">Systems thinker.</span></p>
+          <p>
+            My path into tech started from a different place —Economics— but over time
+            I became more interested in how data flows, how systems connect, and how
+            technology can solve real-world problems at scale. That curiosity led me into
+            Information Technology, where I'm now specialising in <strong>IoT</strong> while
+            building toward a career in <strong>data engineering</strong> and <strong>cloud computing</strong>.
+          </p>
+          <p>
+            These days I focus on designing and working with data systems — pipelines,
+            cloud platforms, and the infrastructure behind modern applications. I'm
+            especially drawn to building things that are efficient, scalable, and reliable.
+          </p>
+          <p>
+            I also enjoy a creative, hands-on approach to building — experimenting,
+            iterating, and refining ideas into working solutions. Structure and creativity,
+            in balance.
+          </p>
+          <p>
+            Outside of tech, I enjoy design, writing, watching movies, and following football.
+          </p>
+
+          <div class="skills-block">
+            <p class="skills-label">Skills</p>
+            <div class="skills-tags">
+              <span>Python</span>
+              <span>SQL</span>
+              <span>HTML &amp; CSS</span>
+              <span>Power BI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: photo -->
+        <div class="about-image">
+          <img src="images/NaimotB.jpeg" alt="Naimot Yekini">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="section-inner">
+      <h2 class="about-heading"><span class="about-brace">{</span> experience <span class="about-brace">}</span></h2>
+
+      <div class="exp-layout">
+        <!-- Left: company tabs -->
+        <ul class="exp-tabs" role="tablist">
+          <li><button class="exp-tab active" data-target="exp-hng" role="tab" aria-selected="true">HNG Tech</button></li>
+          <li><button class="exp-tab" data-target="exp-naema" role="tab" aria-selected="false">Naema Couture</button></li>
+          <li><button class="exp-tab" data-target="exp-fcda" role="tab" aria-selected="false">FCDA</button></li>
+        </ul>
+
+        <!-- Right: details panels -->
+        <div class="exp-panels">
+
+          <div class="exp-panel active" id="exp-hng" role="tabpanel">
+            <h3>Data Analyst <span class="exp-at">@ <span class="exp-co">HNG Tech</span></span></h3>
+            <p class="exp-date">Jun 2024 – Dec 2024 · Remote</p>
+            <ul>
+              <li>Delivered analytical projects on schedule, working autonomously in a remote team environment.</li>
+              <li>Built dashboards and reports that communicated data insights to non-technical stakeholders.</li>
+              <li>Produced clean, reliable datasets and documented processes for repeatability.</li>
+            </ul>
+          </div>
+
+          <div class="exp-panel" id="exp-naema" role="tabpanel">
+            <h3>Product Marketing Manager <span class="exp-at">@ <span class="exp-co">Naema Couture</span></span></h3>
+            <p class="exp-date">Feb 2017 – Jan 2024 · Ibadan, Nigeria</p>
+            <ul>
+              <li>Led initiatives from planning to execution, coordinating activities across functions.</li>
+              <li>Improved reporting transparency and operational efficiency through structured workflows.</li>
+            </ul>
+          </div>
+
+          <div class="exp-panel" id="exp-fcda" role="tabpanel">
+            <h3>Planning Officer Assistant <span class="exp-at">@ <span class="exp-co">Federal Capital Development Authority</span></span></h3>
+            <p class="exp-date">Dec 2015 – Nov 2016 · Abuja, Nigeria</p>
+            <ul>
+              <li>Compiled and maintained planning reports.</li>
+              <li>Organised datasets to improve inter-department information flow.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="tech-stack">
+    <div class="section-inner">
+      <h2 class="about-heading"><span class="about-brace">{</span> Tech Stack <span class="about-brace">}</span></h2>
+
+      <div class="stack-grid">
+        <div class="stack-group">
+          <h3>Frontend</h3>
+          <div class="skills-tags">
+            <span>HTML &amp; CSS</span>
+            <span>React</span>
+            <span>Figma</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Backend &amp; Databases</h3>
+          <div class="skills-tags">
+            <span>Python</span>
+            <span>Flet</span>
+            <span>MySQL</span>
+            <span>Microsoft SQL Server</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Data &amp; Analytics</h3>
+          <div class="skills-tags">
+            <span>SQL</span>
+            <span>Power BI</span>
+            <span>Tableau</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>AI &amp; Tools</h3>
+          <div class="skills-tags">
+            <span>Prompt Engineering</span>
+            <span>AI-assisted Dev</span>
+            <span>Git / GitHub</span>
+            <span>VS Code</span>
+            <span>Excel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-inner">
+      <h2 class="about-heading"><span class="about-brace">{</span> projects <span class="about-brace">}</span></h2>
+
+      <div class="projects-grid">
+
+        <!-- Credit Card Fraud EDA -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <div class="proj-tags">
+              <span>Python</span><span>Jupyter</span><span>EDA</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/onikeyek/credit-card-fraud-eda" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/onikeyek/credit-card-fraud-eda" target="_blank" rel="noopener" aria-label="View project"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <h3>Credit Card Fraud EDA</h3>
+          <p>Exploratory data analysis on credit card transaction data to identify fraud patterns using Python and data visualisation techniques.</p>
+        </div>
+
+        <!-- AI Fashion MNIST -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <div class="proj-tags">
+              <span>AI</span><span>Neural Network</span><span>Python</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/onikeyek/AI-Modeling-Fashion-MNIST-Dataset-Zalando-" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/onikeyek/AI-Modeling-Fashion-MNIST-Dataset-Zalando-" target="_blank" rel="noopener" aria-label="View project"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <h3>AI Fashion MNIST Modeling</h3>
+          <p>Neural network model trained on the Zalando Fashion MNIST dataset for clothing item classification. Full ML pipeline from data prep to evaluation.</p>
+        </div>
+
+        <!-- Weather App -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <div class="proj-tags">
+              <span>JavaScript</span><span>API</span><span>async/await</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/onikeyek/BROWSER-PROGRAMMING" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+              <a href="weather.html" aria-label="Open Weather App"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <h3>Weather App + API Demo</h3>
+          <p>Live weather data fetched from Open-Meteo API. Demonstrates async/await, error handling, and dynamic DOM updates. Also includes a live user profile fetch from an external REST API — click to see it in action.</p>
+          <a href="weather.html" class="proj-demo-link">Open live demo ↗</a>
+        </div>
+
+        <!-- Hopewell Health -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <div class="proj-tags">
+              <span>CSS</span><span>HTML</span><span>JavaScript</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/onikeyek/Hopewell-Health" target="_blank" rel="noopener" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+              <a href="https://onikeyek.github.io/Hopewell-Health" target="_blank" rel="noopener" aria-label="Live site"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <h3>Hopewell Health</h3>
+          <p>A health-focused web project with a clean, responsive interface. Built and deployed via GitHub Pages.</p>
+        </div>
+
+      </div>
+
+      <!-- View all on GitHub -->
+      <div class="projects-more">
+        <a href="https://github.com/onikeyek?tab=repositories" target="_blank" rel="noopener" class="btn-more">
+          View more on GitHub <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p class="footer-name">Naimot Yekini</p>
+        <p class="footer-sub">IoT &amp; Data Engineering · Savonia UAS Student · Finland</p>
+        <p class="footer-copy">© 2026 Naimot Yekini</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/naimot-yekini-46216397" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://github.com/onikeyek" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://medium.com/@naimotyekini95" target="_blank" rel="noopener">Medium ↗</a></li>
+        <li><a href="mailto:naimotyekini95@gmail.com">Email ↗</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

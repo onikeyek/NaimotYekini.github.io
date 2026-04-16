@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather – Naimot Yekini</title>
+  <link rel="stylesheet" href="weather.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <i class="fas fa-wind"></i>
+      <span>AeroSense</span>
+    </div>
+    <div class="sidebar-station">
+      <span class="station-label">METEOROLOGIST</span>
+      <span class="station-name">Station 04-Alpha</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="snav-item active"><i class="fas fa-cloud-sun"></i><span>Forecast</span></a>
+      <a href="#" class="snav-item"><i class="fas fa-smog"></i><span>Air Quality</span></a>
+    </nav>
+    <div class="sidebar-promo">
+      <p class="promo-label">PRO ACCESS</p>
+      <p class="promo-text">Unlock advanced satellite data.</p>
+      <button class="btn-upgrade">Upgrade to Pro</button>
+    </div>
+    <div class="sidebar-bottom">
+      <a href="index.html" class="snav-item"><i class="fas fa-arrow-left"></i><span>Portfolio</span></a>
+      <a href="#" class="snav-item"><i class="fas fa-circle-question"></i><span>Help</span></a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="weather-main">
+
+    <!-- Topbar -->
+    <header class="weather-topbar">
+      <h1 class="topbar-title">Stratospheric Weather</h1>
+      <div class="city-buttons">
+        <button class="city-btn active" data-city="Kuopio"   data-lat="62.8924" data-lon="27.6770"><i class="fas fa-location-dot"></i> Kuopio</button>
+        <button class="city-btn"        data-city="Helsinki" data-lat="60.1699" data-lon="24.9384"><i class="fas fa-location-dot"></i> Helsinki</button>
+        <button class="city-btn"        data-city="Lagos"    data-lat="6.5244"  data-lon="3.3792"><i class="fas fa-location-dot"></i> Lagos</button>
+        <button class="city-btn"        data-city="London"   data-lat="51.5074" data-lon="-0.1278"><i class="fas fa-location-dot"></i> London</button>
+      </div>
+      <div class="topbar-icons">
+        <i class="fas fa-bell"></i>
+        <i class="fas fa-gear"></i>
+      </div>
+    </header>
+
+    <!-- Forecast view -->
+    <div class="content-grid" id="forecastView">
+
+      <div class="col-left">
+        <div class="hero-card">
+          <div class="hero-bg" id="heroBg"></div>
+          <div class="hero-body">
+            <div class="hero-info">
+              <h2 class="hero-city" id="heroCity">Kuopio</h2>
+              <p class="hero-condition" id="heroCondition"><span>⛅</span> Loading...</p>
+            </div>
+            <div class="hero-temp-block">
+              <div class="hero-temp" id="heroTemp">--°</div>
+              <div class="hero-meta">
+                <div class="hero-meta-item">
+                  <span class="meta-label">FEELS LIKE</span>
+                  <span class="meta-val" id="heroFeels">--°</span>
+                </div>
+                <div class="hero-meta-item">
+                  <span class="meta-label">VISIBILITY</span>
+                  <span class="meta-val" id="heroVis">-- km</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-top"><i class="fas fa-droplet"></i><span class="stat-label">HUMIDITY</span></div>
+            <div class="stat-value" id="statHumidity">--%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top"><i class="fas fa-wind"></i><span class="stat-label">WIND SPEED</span></div>
+            <div class="stat-value" id="statWind">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top"><i class="fas fa-gauge"></i><span class="stat-label">PRESSURE</span></div>
+            <div class="stat-value" id="statPressure">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top"><i class="fas fa-cloud-rain"></i><span class="stat-label">PRECIPITATION</span></div>
+            <div class="stat-value" id="statPrecip">--%</div>
+          </div>
+        </div>
+
+        <div class="hourly-section">
+          <div class="hourly-header">
+            <h3>Hourly Forecast</h3>
+            <span class="hourly-label">NEXT 12 HOURS</span>
+          </div>
+          <div class="hourly-grid" id="hourlyGrid">
+            <div class="hourly-placeholder">Loading...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-right">
+        <div class="forecast-card">
+          <div class="forecast-header">
+            <i class="fas fa-calendar-days"></i>
+            <span>7-DAY FORECAST</span>
+          </div>
+          <div id="dailyForecast" class="daily-list">
+            <div class="daily-placeholder">Loading...</div>
+          </div>
+          <button class="btn-14day">View 14-Day Forecast</button>
+        </div>
+
+        <div class="side-cards">
+          <div class="side-card">
+            <p class="side-label">UV INDEX</p>
+            <p class="side-value" id="uvIndex">--</p>
+            <p class="side-sub" id="uvLabel">--</p>
+            <div class="uv-bar"><div class="uv-fill" id="uvFill" style="width:0%"></div></div>
+          </div>
+          <div class="side-card">
+            <p class="side-label">AIR QUALITY</p>
+            <p class="side-value" id="aqiValue">--</p>
+            <p class="side-sub" id="aqiLabel">--</p>
+            <div class="aqi-bar"><div class="aqi-fill" id="aqiFill" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <div class="sun-card">
+          <div class="sun-item">
+            <p class="side-label">SUNRISE</p>
+            <p class="sun-time" id="sunrise">--:-- AM</p>
+          </div>
+          <div class="sun-divider"></div>
+          <div class="sun-item">
+            <p class="side-label">SUNSET</p>
+            <p class="sun-time" id="sunset">--:-- PM</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="weather-footer">
+      <strong>AeroSense Precision</strong>
+      <span>© 2026 Naimot Yekini · Data via Open-Meteo</span>
+      <a href="index.html">Back to Portfolio</a>
+    </footer>
+
+  </div>
+
+  <script src="weather.js"></script>
+</body>
+</html>
