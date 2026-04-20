@@ -1001,6 +1001,10 @@ body.light .about-brace {
   padding: 8px 10px;
   transition: color 0.2s;
   font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .nav-weather-btn:hover {
